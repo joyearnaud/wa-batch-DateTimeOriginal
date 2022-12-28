@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/bach-rename.ts",
+      "program": "${workspaceFolder}/src/services/launch.ts",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "args": [
         "--input=./dist/input",

@@ -10,5 +10,10 @@
     "dayjs": "^1.11.7",
     "minimist": "^1.2.7",
     "piexifjs": "^1.0.6"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "test:unit": "ENV_FILE=./config/.env.test jest",
+    "test:watch": "jest --watch"
   }
 }
