@@ -1,5 +1,23 @@
 # wa-bach-rename
 
+## Get dependencies
+
 ```bash
-npx tsc ./src/services/bach-rename.ts && node bach-rename.js -i dist/input -o dist/output/bach-rename 
+yarn
+```
+
+## Build
+
+```bash
+npx tsc
+```
+
+## Launch
+```bash
+node ./dist/launch.js --input=./dist/input --output=./dist/output
+```
+
+## Launch test
+```bash
+yarn test
 ```

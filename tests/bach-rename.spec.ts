@@ -7,11 +7,21 @@ const argv = require("minimist")(process.argv.slice(2));
 
 import { setOriginDate } from "../src/services/bach-rename";
 
-const inputdir = "/Users/arnaudjoye/Project/wa-bach-rename/tests/input";
-const outputdir = "/Users/arnaudjoye/Project/wa-bach-rename/tests/output";
+const inputdir = "./tests/input";
+const outputdir = "./tests/output";
+
+const expected_inputDirLength = 8;
+const expected_outputDirLength = 5;
+const expected_dates = [
+  "2016:08:03 15:52:13",
+  "2017:04:23 23:55:32",
+  "2017:04:23 23:56:19",
+  "2017:04:23 23:56:45",
+  "2017:05:29 19:05:18",
+];
 
 beforeAll(() => {
-  expect(fs.readdirSync(inputdir).length).toEqual(8);
+  expect(fs.readdirSync(inputdir).length).toEqual(expected_inputDirLength);
 });
 
 describe("auth", () => {
@@ -20,10 +30,19 @@ describe("auth", () => {
 
   it("should launch setOriginDate", async () => {
     const response = setOriginDate(inputdir, outputdir, "unit test");
+    const filenames = fs.readdirSync(outputdir);
+    expect(filenames.length).toEqual(expected_outputDirLength);
+
+    filenames.forEach((file, index) => {
+      const path = outputdir + "/" + file.toString("binary");
+      const img = piexif.load(fs.readFileSync(path).toString("binary"));
+      expect(img["Exif"][36867]).toEqual(expected_dates[index]);
+    });
   });
 });
 
 afterAll(() => {
+  // Deletes all files in output dir for next iteration
   fs.readdir(outputdir, (err, files) => {
     if (err) throw err;
 

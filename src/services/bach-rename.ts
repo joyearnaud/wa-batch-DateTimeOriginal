@@ -3,10 +3,8 @@ const path = require("path");
 const piexif = require("piexifjs");
 const dayjs = require("dayjs");
 
-export function setOriginDate(inputdir: string, outputdir: string, test) {
-  console.log(inputdir, "inputdir");
-  console.log(outputdir, "outputdir");
-  console.log(test, "test");
+export function setOriginDate(inputdir: string, outputdir: string, env) {
+  console.log({ inputdir, outputdir }, env);
   const filenames = fs.readdirSync(inputdir);
 
   filenames.forEach((file) => {
