@@ -10,9 +10,10 @@ import { setOriginDate } from "../src/services/bach-rename";
 const inputdir = "./tests/input";
 const outputdir = "./tests/output";
 
-const expected_inputDirLength = 8;
-const expected_outputDirLength = 5;
+const expected_inputDirLength = 9;
+const expected_outputDirLength = 6;
 const expected_dates = [
+  "2017:02:16 00:00:00",
   "2016:08:03 15:52:13",
   "2017:04:23 23:55:32",
   "2017:04:23 23:56:19",
