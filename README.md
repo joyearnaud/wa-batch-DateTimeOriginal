@@ -4,6 +4,15 @@ Sometime when using Whatsapp image restoration, images can lose useful informati
 
 This batch try to solve this problem by injecting the dates contained in the filename into EXIF as DateTimeOriginal.
 
+Filenames as to be:
+- IMG_20170821_003927.jpg
+- IMG_20170821_003927_processed.jpg
+- IMG-20170821-WA0002.jpg
+
+where 20170821 is a date YYYYmmdd (2017:08/21), 003927 is a time hhmmss (00:39:27), WA0002 is an date incrementated ID when Whatsapp choose not to include time.
+
+Files have to be `.jpg`. Parameter `input` give the .jpg directory and parameter `output` give the result file directory. Files in output directory are anoted with `_dto`.
+
 ## Get dependencies
 
 ```bash
